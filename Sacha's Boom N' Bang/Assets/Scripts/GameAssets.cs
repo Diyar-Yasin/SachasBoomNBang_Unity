@@ -26,6 +26,18 @@ public class GameAssets : MonoBehaviour
     // Player Sprite Assets
     public Sprite idle1;
     public Sprite idle2;
+
     public Sprite block1;
     public Sprite block2;
+
+    public Sprite dodgeLeft;
+    public Sprite dodgeRight;
+
+    public Sprite atckLeft1;
+    public Sprite atckLeft2;
+    public Sprite atckLeft3;
+    
+    public Sprite atckRight1;
+    public Sprite atckRight2;
+    public Sprite atckRight3;
 }

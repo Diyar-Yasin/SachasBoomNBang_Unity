@@ -9,7 +9,8 @@ public class IdleState : IPlayerState
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
         // Call the idle function, if we ever want to access player just use player.x
-        AnimateIdle(player);
+        //AnimateIdle(player);
+        player.GetComponent<SpriteRenderer>().sprite = GameAssets.i.idle1;
 
         // Use if statements to determine what state to return
         // E.g.
@@ -19,33 +20,21 @@ public class IdleState : IPlayerState
         if (Input.GetButtonDown("Block"))
         {
             return player.blockState;
+        } else if (Input.GetButtonDown("Left"))
+        {
+            return player.dodgeLState;
+        } else if (Input.GetButtonDown("Right"))
+        {
+            return player.dodgeRState;
+        } else if (Input.GetButtonDown("Jab"))
+        {
+            return player.atckLState;
+        } else if (Input.GetButtonDown("Punch"))
+        {
+            return player.atckRState;
         } else
         {
             return player.idleState;
         }
-    }
-
-    private void AnimateIdle(PlayerSearch_ClassBased player)
-    {
-        float idleMoveWaitTime = 4f;
-        SpriteRenderer currSpirte = player.GetComponent<SpriteRenderer>();
-        currSpirte.sprite = GameAssets.i.idle2;
-        Debug.Log(GameAssets.i.idle2);
-
-        while (idleMoveWaitTime > 0)
-        {
-            idleMoveWaitTime -= Time.deltaTime;
-        }
-
-        currSpirte.sprite = GameAssets.i.idle2;
-        Debug.Log("We made it");
-
-        idleMoveWaitTime = FRAME_TIME * 2;
-        while (idleMoveWaitTime > 0)
-        {
-            idleMoveWaitTime -= Time.deltaTime;
-        }
-
-        currSpirte.sprite = GameAssets.i.idle1;
     }
 }

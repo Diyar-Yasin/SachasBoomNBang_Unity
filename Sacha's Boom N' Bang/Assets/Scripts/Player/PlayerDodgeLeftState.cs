@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockState : IPlayerState
+public class DodgeLeftState : IPlayerState
 {
-    private const int FRAME_TIME = 240; 
+    private const int FRAME_TIME = 240;
+    private const int LAST_FRAME = 1;
+    private Vector3 moveLeft = Vector3.left * 0.4f;
     private int currFrame = FRAME_TIME;
     SpriteRenderer currSpirte;
 
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
         Animate(player);
-        
-        if (Input.GetButtonDown("Block") || currFrame > 0)
+
+        if (Input.GetButtonDown("Left") || currFrame > 0)
         {
-            return player.blockState;
+            return player.dodgeLState;
         } else
         {
             currFrame = FRAME_TIME;
@@ -26,14 +28,15 @@ public class BlockState : IPlayerState
     {
         currSpirte = player.GetComponent<SpriteRenderer>();
 
-        if (currFrame > FRAME_TIME * 0.75f)
+        if (currFrame == FRAME_TIME)
         {
-            currSpirte.sprite = GameAssets.i.block1;
-        } else
+            player.transform.position += moveLeft;
+        } else if (currFrame == LAST_FRAME)
         {
-            currSpirte.sprite = GameAssets.i.block2;
+            player.transform.position -= moveLeft;
         }
 
+        currSpirte.sprite = GameAssets.i.dodgeLeft;
         currFrame--;
     }
 }

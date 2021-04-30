@@ -47,3 +47,11 @@ MonoBehaviour:
   idle2: {fileID: 21300000, guid: 48b97e1c6eeae4444bb40c0be9db4834, type: 3}
   block1: {fileID: 21300000, guid: 1d4db0debeeb7fa41b24d4dc1466c068, type: 3}
   block2: {fileID: 21300000, guid: cf0b823b071fc52449b30fe7a6fc7e96, type: 3}
+  dodgeLeft: {fileID: 21300000, guid: 9f29f95db2d47a9479baae76663c4c81, type: 3}
+  dodgeRight: {fileID: 21300000, guid: 3bf9ae297fd742f4faef85e1740e05bb, type: 3}
+  atckLeft1: {fileID: 21300000, guid: 8ab2242bce64290498e927990f0bda48, type: 3}
+  atckLeft2: {fileID: 21300000, guid: 558d7444f4b1ca14eb049044fe33d690, type: 3}
+  atckLeft3: {fileID: 21300000, guid: 77914fe446dc05b4d8e8b5853128d4b5, type: 3}
+  atckRight1: {fileID: 21300000, guid: d2c1e6ada82175042a43c3fcf99484d1, type: 3}
+  atckRight2: {fileID: 21300000, guid: a63a4ac207f469f4c8bfa49210664f3b, type: 3}
+  atckRight3: {fileID: 21300000, guid: fdd0d22a7af45184cb38264f0d22769a, type: 3}
