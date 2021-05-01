@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class IdleState : IPlayerState
 {
-    private const float FRAME_TIME = 0.1f;
-
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
         // Call the idle function, if we ever want to access player just use player.x
@@ -17,6 +15,11 @@ public class IdleState : IPlayerState
         // return player.blockState;
 
         // If we get a new state we would have to add that to our list of considerations in the form of another else if
+        if (string.Compare((GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemySearch_ClassBased>().currentStateName), "EnemyAtckState") == 0)
+        {
+            return player.dmgState;
+        }
+        
         if (Input.GetButtonDown("Block"))
         {
             return player.blockState;

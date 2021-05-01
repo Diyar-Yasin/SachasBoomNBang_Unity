@@ -40,4 +40,12 @@ public class GameAssets : MonoBehaviour
     public Sprite atckRight1;
     public Sprite atckRight2;
     public Sprite atckRight3;
+
+    public Sprite damaged1;
+    public Sprite damaged2;
+
+    // Enemy Sprite Assets
+    public Sprite enemyIdle;
+    public Sprite enemyDamaged;
+    public Sprite enemyAtck;
 }

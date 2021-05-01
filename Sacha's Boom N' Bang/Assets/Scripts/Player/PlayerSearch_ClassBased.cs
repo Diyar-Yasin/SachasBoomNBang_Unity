@@ -13,6 +13,7 @@ public class PlayerSearch_ClassBased : MonoBehaviour
     public DodgeRightState dodgeRState = new DodgeRightState();
     public AttackLeftState atckLState = new AttackLeftState();
     public AttackRightState atckRState = new AttackRightState();
+    public DamageState dmgState = new DamageState();
 
     private void OnEnable()
     {

@@ -16,6 +16,12 @@ public class AttackRightState : IPlayerState
     {
         Animate(player);
         
+        if (string.Compare((GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemySearch_ClassBased>().currentStateName), "EnemyAtckState") == 0)
+        {
+            currFrame = FRAME_TIME;
+            return player.dmgState;
+        }
+
         if (Input.GetButtonDown("Punch") || currFrame > 0)
         {
             return player.atckRState;

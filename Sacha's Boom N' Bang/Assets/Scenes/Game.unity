@@ -314,8 +314,8 @@ GameObject:
   - component: {fileID: 1126406851}
   - component: {fileID: 1126406850}
   m_Layer: 0
-  m_Name: Target1
-  m_TagString: Untagged
+  m_Name: Enemy (Tentative)
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,12 +329,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1126406849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6bf1844d99ec0438e8292e94fbb269, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c164bc2ad0db0c4d84123f65b566d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 21300000, guid: 5fea32a210712124b9cfe06b9a1db4a9, type: 3}
-  damaged: {fileID: 21300000, guid: 0d5d9a2ec8d2da347b3efed43cbf2d7a, type: 3}
-  invicible: {fileID: 21300000, guid: 087dfb79e77f9334a99239165082e643, type: 3}
+  currentStateName: 
 --- !u!212 &1126406851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -411,7 +409,7 @@ GameObject:
   - component: {fileID: 2076010000}
   - component: {fileID: 2076009999}
   m_Layer: 0
-  m_Name: Tentative_Background
+  m_Name: Background (Tentative)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

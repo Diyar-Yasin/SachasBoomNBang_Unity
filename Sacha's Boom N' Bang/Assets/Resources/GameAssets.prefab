@@ -55,3 +55,8 @@ MonoBehaviour:
   atckRight1: {fileID: 21300000, guid: d2c1e6ada82175042a43c3fcf99484d1, type: 3}
   atckRight2: {fileID: 21300000, guid: a63a4ac207f469f4c8bfa49210664f3b, type: 3}
   atckRight3: {fileID: 21300000, guid: fdd0d22a7af45184cb38264f0d22769a, type: 3}
+  damaged1: {fileID: 21300000, guid: 4ebe740ca8838b243aea7788a04fa13a, type: 3}
+  damaged2: {fileID: 21300000, guid: 1b3e0c85a2886b043a53afaf5b2954f7, type: 3}
+  enemyIdle: {fileID: 21300000, guid: 5fea32a210712124b9cfe06b9a1db4a9, type: 3}
+  enemyDamaged: {fileID: 21300000, guid: 0d5d9a2ec8d2da347b3efed43cbf2d7a, type: 3}
+  enemyAtck: {fileID: 21300000, guid: 087dfb79e77f9334a99239165082e643, type: 3}
