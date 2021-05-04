@@ -7,10 +7,24 @@ public class EnemyIdleState : IEnemyState
     private const int FRAME_TIME = 360;
     private const int LAST_FRAME = 1;
     private int currFrame = FRAME_TIME;
+    private const float ADJUSTMENT_TIME_1 = FRAME_TIME * (2.0f / 5.0f);
+    private const float ADJUSTMENT_TIME_2 = FRAME_TIME * (1.0f / 5.0f);
+
+    private SpriteRenderer currSprite;
 
     public IEnemyState DoState(EnemySearch_ClassBased enemy, GameObject player)
     {
-        enemy.GetComponent<SpriteRenderer>().sprite = GameAssets.i.enemyIdle;
+        currSprite = enemy.GetComponent<SpriteRenderer>();
+
+        if (currFrame > ADJUSTMENT_TIME_1)
+        {
+            currSprite.sprite = GameAssets.i.enemyIdle1;
+        } else if (currFrame > ADJUSTMENT_TIME_2)
+        {
+            currSprite.sprite = GameAssets.i.enemyIdle2;
+        } else {
+            currSprite.sprite = GameAssets.i.enemyIdle1;
+        }
         currFrame--;
 
         if ((string.Compare(player.GetComponent<PlayerSearch_ClassBased>().currentStateName, "AttackLeftState") == 0) ||

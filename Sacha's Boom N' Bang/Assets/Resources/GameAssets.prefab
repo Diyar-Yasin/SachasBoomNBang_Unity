@@ -57,6 +57,9 @@ MonoBehaviour:
   atckRight3: {fileID: 21300000, guid: fdd0d22a7af45184cb38264f0d22769a, type: 3}
   damaged1: {fileID: 21300000, guid: 4ebe740ca8838b243aea7788a04fa13a, type: 3}
   damaged2: {fileID: 21300000, guid: 1b3e0c85a2886b043a53afaf5b2954f7, type: 3}
-  enemyIdle: {fileID: 21300000, guid: 5fea32a210712124b9cfe06b9a1db4a9, type: 3}
-  enemyDamaged: {fileID: 21300000, guid: 0d5d9a2ec8d2da347b3efed43cbf2d7a, type: 3}
-  enemyAtck: {fileID: 21300000, guid: 087dfb79e77f9334a99239165082e643, type: 3}
+  enemyIdle1: {fileID: 21300000, guid: f2fdac48fca2ea248a9ec2f5a2e7559b, type: 3}
+  enemyIdle2: {fileID: 21300000, guid: cc284f58fdd09504180f22f059d53b4b, type: 3}
+  enemyDamaged: {fileID: 21300000, guid: 3d2c844c1bf44af4091859b527029fef, type: 3}
+  enemyPunch1: {fileID: 21300000, guid: 3d2c844c1bf44af4091859b527029fef, type: 3}
+  enemyPunch2: {fileID: 21300000, guid: dce9df958ed92c548a0ff7eb84098701, type: 3}
+  enemyPunch3: {fileID: 21300000, guid: c0b831cac27068740bfe9309040ded5e, type: 3}
