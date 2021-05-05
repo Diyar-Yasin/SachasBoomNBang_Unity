@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // UNDER CONSTRUCTION: The wind up time should not damage the player (it does right now).
-public class EnemyAtckState : IEnemyState
+public class EnemyPunchState : IEnemyState
 {
     private const int FRAME_TIME = 320;
     private const int LAST_FRAME = 1;
@@ -36,7 +36,7 @@ public class EnemyAtckState : IEnemyState
             return enemy.dmgState;
         } else if (currFrame > 0)
         {
-            return enemy.atckState;
+            return enemy.punchState;
         } else
         {
             currFrame = FRAME_TIME;

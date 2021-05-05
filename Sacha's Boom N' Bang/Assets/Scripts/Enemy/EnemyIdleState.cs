@@ -30,14 +30,23 @@ public class EnemyIdleState : IEnemyState
         if ((string.Compare(player.GetComponent<PlayerSearch_ClassBased>().currentStateName, "AttackLeftState") == 0) ||
         ((string.Compare(player.GetComponent<PlayerSearch_ClassBased>().currentStateName, "AttackRightState") == 0)))
         {
-            return enemy.dmgState;
+            return enemy.blockState;
         } else if (currFrame > 0)
         {
             return enemy.idleState;
         } else
         {
             currFrame = FRAME_TIME;
-            return enemy.atckState;
+            int randomChoice = Random.Range(0, 2); // Can we make a better way to choose our attack?
+            
+            if (randomChoice == 0)
+            {
+                return enemy.punchState;
+            } else
+            {
+                return enemy.uppercutState;
+            }
+            
         }
         
     }

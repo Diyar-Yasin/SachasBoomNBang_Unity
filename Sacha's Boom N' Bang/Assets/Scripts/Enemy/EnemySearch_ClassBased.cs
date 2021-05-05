@@ -9,8 +9,10 @@ public class EnemySearch_ClassBased : MonoBehaviour
     private GameObject player;
 
     public EnemyIdleState idleState = new EnemyIdleState();
-    public EnemyAtckState atckState = new EnemyAtckState();
+    public EnemyPunchState punchState = new EnemyPunchState();
     public EnemyDamagedState dmgState = new EnemyDamagedState();
+    public EnemyBlockState blockState = new EnemyBlockState();
+    public EnemyUppercutState uppercutState = new EnemyUppercutState();
 
     private void OnEnable()
     {
