@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class IdleState : IPlayerState
 {
+    private const string enemyPunchState = "EnemyPunchState";
+    private const string enemyUppercutState = "EnemyUppercutState";
+    private EnemySearch_ClassBased enemy;
+
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
         // Call the idle function, if we ever want to access player just use player.x
@@ -15,7 +19,10 @@ public class IdleState : IPlayerState
         // return player.blockState;
 
         // If we get a new state we would have to add that to our list of considerations in the form of another else if
-        if (string.Compare((GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemySearch_ClassBased>().currentStateName), "EnemyAtckState") == 0)
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemySearch_ClassBased>();
+
+        if ((string.Compare((enemy.currentStateName), enemyPunchState) == 0) ||
+            (string.Compare(enemy.currentStateName, enemyUppercutState) == 0))
         {
             return player.dmgState;
         }

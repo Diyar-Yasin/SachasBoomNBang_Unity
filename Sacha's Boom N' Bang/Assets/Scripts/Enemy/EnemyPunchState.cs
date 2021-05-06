@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyUppercutState : IEnemyState
+// UNDER CONSTRUCTION: The wind up time should not damage the player (it does right now).
+public class EnemyPunchState : IEnemyState
 {
-    private const int FRAME_TIME = 120;
+    private const int FRAME_TIME = 80;
+    private const float WIND_UP_TIME = FRAME_TIME * 0.25f;
+
+    private SpriteRenderer currSprite;
     private int currFrame = FRAME_TIME;
+    
 
     public IEnemyState DoState(EnemySearch_ClassBased enemy, GameObject player)
     {
@@ -13,18 +18,18 @@ public class EnemyUppercutState : IEnemyState
 
         if (currFrame > 0)
         {
-            return enemy.uppercutState;
+            return enemy.punchState;
         } else
         {
             currFrame = FRAME_TIME;
             return enemy.idleState;
         }
-        
     }
 
     private void Animate(EnemySearch_ClassBased enemy)
     {
-        enemy.GetComponent<SpriteRenderer>().sprite = GameAssets.i.enemyUppercut5;
+        currSprite = enemy.GetComponent<SpriteRenderer>();
+        currSprite.sprite = GameAssets.i.enemyPunch3;
         currFrame--;
     }
 }

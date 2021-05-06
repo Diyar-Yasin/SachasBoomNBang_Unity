@@ -68,4 +68,4 @@ MonoBehaviour:
   enemyUppercut3: {fileID: 21300000, guid: 43a5c8d593400944692c54a3b25610e2, type: 3}
   enemyUppercut4: {fileID: 21300000, guid: 4d0312038199fa54f8be1005f38f4957, type: 3}
   enemyUppercut5: {fileID: 21300000, guid: fa27a9ee446c7654785d72e61fb4b298, type: 3}
-  enemyDamaged: {fileID: 21300000, guid: 5a9293405ac5c434aaebdbf572300402, type: 3}
+  enemyDamaged: {fileID: 21300000, guid: fc6b3827b97072d49a5aa781f47878b0, type: 3}

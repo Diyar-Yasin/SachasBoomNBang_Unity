@@ -41,10 +41,10 @@ public class EnemyIdleState : IEnemyState
             
             if (randomChoice == 0)
             {
-                return enemy.punchState;
+                return enemy.punchWindState;
             } else
             {
-                return enemy.uppercutState;
+                return enemy.uppercutWindupState;
             }
             
         }
