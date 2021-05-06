@@ -12,22 +12,32 @@ public class EnemyDamagedState : IEnemyState
     private Vector3 moveUp = Vector3.up * 0.3f;
     private int currFrame = FRAME_TIME;
     private PlayerSearch_ClassBased playerState;
+    private bool hitByLeft;
     private int timesToDamage = 6; // The number of times I can reapply damage to enemy if I am quick enough in attacking before he
     // forces back to idle
 
     public IEnemyState DoState(EnemySearch_ClassBased enemy, GameObject player)
     {
+        playerState = player.GetComponent<PlayerSearch_ClassBased>();
+
         if (currFrame == FRAME_TIME)
         {
+            if (string.Compare(playerState.currentStateName, playerAtckL) == 0)
+            {
+                hitByLeft = true;
+            } else
+            {
+                hitByLeft = false;
+            }
+
             enemy.transform.position += moveUp;
+
         } else if (currFrame == LAST_FRAME)
         {
             enemy.transform.position -= moveUp;
         }
 
-        playerState = player.GetComponent<PlayerSearch_ClassBased>();
-
-        if (string.Compare(playerState.currentStateName, playerAtckL) == 0)
+        if (hitByLeft)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = GameAssets.i.enemyDamagedR;
         } else
