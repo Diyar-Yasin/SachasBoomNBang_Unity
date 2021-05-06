@@ -60,5 +60,6 @@ public class GameAssets : MonoBehaviour
     public Sprite enemyUppercut4;
     public Sprite enemyUppercut5;
 
-    public Sprite enemyDamaged;
+    public Sprite enemyDamagedR;
+    public Sprite enemyDamagedL;
 }
