@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// EnemyUppercutWindupState
+//              Enemy state that plays the animation right before the impact of the uppercut.
+//
+//          Note: This is necessary so that when the player checks the enemy state to determine if it
+//          should take damage, it only takes said damage on the impact of the attack and not when
+//          the enemy is winding up.
 public class EnemyUppercutWindupState : IEnemyState
 {
+    // PRIVATE
     private const int FRAME_TIME = 400;
     private const float FIRST_FOURTH = FRAME_TIME * (4.0f / 5.0f);
     private const float SECOND_FOURTH = FRAME_TIME * (3.0f / 5.0f);
@@ -41,7 +48,7 @@ public class EnemyUppercutWindupState : IEnemyState
         }
     }
 
-    private bool CheckForCancels(EnemySearch_ClassBased enemy, GameObject player) // Checks if the player is attacking us during 
+    private bool CheckForCancels(EnemySearch_ClassBased enemy, GameObject player)                                      // Checks if the player is attacking the enemy during windup so the enemy can enter the damage state.
     {
         if (currFrame >  CANCELLABLE_FRAME)
         {
@@ -59,7 +66,7 @@ public class EnemyUppercutWindupState : IEnemyState
         return false;
     }
 
-    private void Animate(EnemySearch_ClassBased enemy)
+    private void Animate(EnemySearch_ClassBased enemy)                                                                 // Determines what sprite to show for the enemy.
     {
         currSprite = enemy.GetComponent<SpriteRenderer>();
         

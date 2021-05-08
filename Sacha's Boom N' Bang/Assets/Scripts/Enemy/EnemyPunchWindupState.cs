@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// EnemyPunchWindupState
+//              Enemy state that plays the animation right before the impact of the punch.
+//
+//          Note: This is necessary so that when the player checks the enemy state to determine if it
+//          should take damage, it only takes said damage on the impact of the attack and not when
+//          the enemy is winding up.
 public class EnemyPunchWindupState : IEnemyState
 {
+    // PRIVATE
     private const int FRAME_TIME = 240;
     private const float CANCELLABLE_FRAME = FRAME_TIME * 0.5f;
     private const string playerAtckL = "AttackLeftState";
@@ -38,9 +45,9 @@ public class EnemyPunchWindupState : IEnemyState
         }
     }
 
-    private bool CheckForCancels(EnemySearch_ClassBased enemy, GameObject player) // Checks if the player is attacking us during 
+    private bool CheckForCancels(EnemySearch_ClassBased enemy, GameObject player)                                      // Checks if the player is attacking the enemy during windup so the enemy can enter the damage state.
     {
-        if (currFrame > CANCELLABLE_FRAME) // The enemy can only be cancelled during his golden frame
+        if (currFrame > CANCELLABLE_FRAME)                                                                             // The enemy can only be cancelled during his golden frame (played in this interval).
         {
             return false;
         }
@@ -55,7 +62,7 @@ public class EnemyPunchWindupState : IEnemyState
         return false;
     }
 
-    private void Animate(EnemySearch_ClassBased enemy)
+    private void Animate(EnemySearch_ClassBased enemy)                                                                 // Determines what sprite to show for the enemy.
     {
         currSprite = enemy.GetComponent<SpriteRenderer>();
 

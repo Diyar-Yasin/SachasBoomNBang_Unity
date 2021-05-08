@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// DodgeRightState
+//              The player's dodging right state. This state simply plays the animation and does no checking for
+//          the enemies state because the player will never take damage in this state.
 public class DodgeRightState : IPlayerState
 {
+    // PRIVATE
     private const int FRAME_TIME = 240;
     private const int LAST_FRAME = 1;
+
     private Vector3 moveRight = Vector3.right * 0.4f;
     private int currFrame = FRAME_TIME;
-    SpriteRenderer currSpirte;
+    private SpriteRenderer currSpirte;
 
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
@@ -24,7 +29,7 @@ public class DodgeRightState : IPlayerState
         }
     }
 
-    private void Animate(PlayerSearch_ClassBased player)
+    private void Animate(PlayerSearch_ClassBased player)                                                               // Determines what sprite to show on screen.
     {
         currSpirte = player.GetComponent<SpriteRenderer>();
 

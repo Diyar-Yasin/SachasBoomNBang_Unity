@@ -2,23 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// IdleState
+//              The player's idle state. This state does all the checking for input and acts as the source from which all other
+//          player states branch off from.
 public class IdleState : IPlayerState
 {
+    // PRIVATE
     private const string enemyPunchState = "EnemyPunchState";
     private const string enemyUppercutState = "EnemyUppercutState";
     private EnemySearch_ClassBased enemy;
 
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
-        // Call the idle function, if we ever want to access player just use player.x
-        //AnimateIdle(player);
-        player.GetComponent<SpriteRenderer>().sprite = GameAssets.i.idle1;
-
-        // Use if statements to determine what state to return
-        // E.g.
-        // return player.blockState;
-
-        // If we get a new state we would have to add that to our list of considerations in the form of another else if
+        player.GetComponent<SpriteRenderer>().sprite = GameAssets.i.idle1;                                             // Use if statements to determine what state to return
+                                                                                                                       // E.g. return player.blockState;
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemySearch_ClassBased>();
 
         if ((string.Compare((enemy.currentStateName), enemyPunchState) == 0) ||

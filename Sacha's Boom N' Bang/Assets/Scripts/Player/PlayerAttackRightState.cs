@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// AttackRightState
+//              The player's right attack. This state can be 'cancelled' and send the player 
+//          directly into the damage state. If the attack runs successfully then the player 
+//          will return to idle.
+//
+//          UNDER CONSTRUCTION: See PlayerAttackLeftState.cs for details.
 public class AttackRightState : IPlayerState
 {
+    // PRIVATE
     private const double FRAME_TIME = 180; 
     private const int LAST_FRAME = 1;
-    private Vector3 moveUp = Vector3.up * 0.1f;
     private const double FIRST_THIRD = 13.0 / 18.0;
     private const double SECOND_THIRD = 4.0 / 9.0;
+
+    private Vector3 moveUp = Vector3.up * 0.1f;
     private double currFrame = FRAME_TIME;
-    SpriteRenderer currSpirte;
+    private SpriteRenderer currSpirte;
 
     public IPlayerState DoState(PlayerSearch_ClassBased player)
     {
@@ -32,7 +40,7 @@ public class AttackRightState : IPlayerState
         }
     }
 
-    private void Animate(PlayerSearch_ClassBased player)
+    private void Animate(PlayerSearch_ClassBased player)                                                               // Determines what sprite to show on screen.
     {
         currSpirte = player.GetComponent<SpriteRenderer>();
 
