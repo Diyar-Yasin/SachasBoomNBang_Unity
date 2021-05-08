@@ -27,12 +27,12 @@ public class EnemyDamagedState : IEnemyState
     public IEnemyState DoState(EnemySearch_ClassBased enemy, GameObject player)
     {
         playerState = player.GetComponent<PlayerSearch_ClassBased>();
-        healthbar.SetHealth(currHealth);
+        //healthbar.SetHealth(currHealth);
         
         if (currFrame == FRAME_TIME)
         {
             currHealth--;
-            healthbar.SetHealth(currHealth);
+            //healthbar.SetHealth(currHealth);
             
             if (currHealth == 0)
             {
