@@ -4,7 +4,7 @@ A 2D, top-down, fighting game. Gameplay is directly from Punch Out.
 ## Motivation
 A game for a friend, as well as a learning experience for a different game genre.
  
-## Screenshots
+## Current State
 ![Alt Text](Game_Photos_&_Video/GamePreview1.gif)
 ![Alt Text](Game_Photos_&_Video/GamePreview2.gif)
 
