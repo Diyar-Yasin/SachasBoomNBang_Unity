@@ -1,5 +1,5 @@
 ## SachasBoomNBang_Unity
-A 2D, top-down, fighting game. Gameplay is directly from Punch Out.
+A 2D fighting game. Gameplay is directly from Punch Out.
 
 ## Motivation
 A game for a friend, as well as a learning experience for a different game genre.
