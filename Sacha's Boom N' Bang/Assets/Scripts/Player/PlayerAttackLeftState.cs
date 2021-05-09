@@ -6,13 +6,6 @@ using UnityEngine;
 //              The player's left attack. This state can be 'cancelled' and send the player 
 //          directly into the damage state. If the attack runs successfully then the player 
 //          will return to idle.
-//
-//          UNDER CONSTRUCTION: I plan to add a feature similar to 'jump-buffering' where if the
-//          player inputs a right attack then it saves that information and will change the player
-//          state to the desired input, that way the game feels smooth even if the player's input
-//          is off by a couple of frames. This also will promote the player to alternate between
-//          left and right attacks as they will feel smoother than if the player spammed one or
-//          the other (as there will be no 'jump-buffering' for that type of input).
 public class AttackLeftState : IPlayerState
 {
     // PRIVATE
@@ -23,6 +16,7 @@ public class AttackLeftState : IPlayerState
 
     private Vector3 moveUp = Vector3.up * 0.1f;
     private double currFrame = FRAME_TIME;
+    private bool jumpBuffer = false;
     private SpriteRenderer currSpirte;
 
     public IPlayerState DoState(PlayerSearch_ClassBased player)
@@ -35,9 +29,14 @@ public class AttackLeftState : IPlayerState
             return player.dmgState;
         }
 
-        if (Input.GetButtonDown("Jab") || currFrame > 0)
+        if (currFrame > 0)
         {
             return player.atckLState;
+        } else if (jumpBuffer)
+        {
+            currFrame = FRAME_TIME;
+            jumpBuffer = false;
+            return player.atckRState;
         } else
         {
             currFrame = FRAME_TIME;
@@ -63,9 +62,14 @@ public class AttackLeftState : IPlayerState
         } else if (currFrame > FRAME_TIME * SECOND_THIRD)
         {
             currSpirte.sprite = GameAssets.i.atckLeft2;
-        } else
-        {
+        } else                                                                                                         // Here is where we check for player input and store if input was a right attack 
+        {                                                                                                              //   so that we can use jump-buffering.
             currSpirte.sprite = GameAssets.i.atckLeft3;
+
+            if (Input.GetButtonDown("Punch"))
+            {
+                jumpBuffer = true;
+            }
         }
 
         currFrame--;

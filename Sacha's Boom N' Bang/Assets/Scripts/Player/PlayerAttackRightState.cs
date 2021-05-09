@@ -6,8 +6,6 @@ using UnityEngine;
 //              The player's right attack. This state can be 'cancelled' and send the player 
 //          directly into the damage state. If the attack runs successfully then the player 
 //          will return to idle.
-//
-//          UNDER CONSTRUCTION: See PlayerAttackLeftState.cs for details.
 public class AttackRightState : IPlayerState
 {
     // PRIVATE
@@ -18,6 +16,7 @@ public class AttackRightState : IPlayerState
 
     private Vector3 moveUp = Vector3.up * 0.1f;
     private double currFrame = FRAME_TIME;
+    private bool jumpBuffer = false;
     private SpriteRenderer currSpirte;
 
     public IPlayerState DoState(PlayerSearch_ClassBased player)
@@ -30,9 +29,14 @@ public class AttackRightState : IPlayerState
             return player.dmgState;
         }
 
-        if (Input.GetButtonDown("Punch") || currFrame > 0)
+        if (currFrame > 0)
         {
             return player.atckRState;
+        } else if (jumpBuffer)
+        {
+            currFrame = FRAME_TIME;
+            jumpBuffer = false;
+            return player.atckLState;
         } else
         {
             currFrame = FRAME_TIME;
@@ -58,9 +62,14 @@ public class AttackRightState : IPlayerState
         } else if (currFrame > FRAME_TIME * SECOND_THIRD)
         {
             currSpirte.sprite = GameAssets.i.atckRight2;
-        } else
+        } else                                                                                                                                      
         {
             currSpirte.sprite = GameAssets.i.atckRight3;
+
+            if (Input.GetButtonDown("Jab"))                                                                            // Here is where we check for player input and store if input was a right attack 
+            {                                                                                                          //   so that we can use jump-buffering.
+                jumpBuffer = true;
+            }
         }
 
         currFrame--;
